@@ -1,15 +1,21 @@
 // import '@babel/polyfill';
 import component from './components/test-html/test-html.mjs';
 import UNIQUE from './components/test-lodash/test-lodash.mjs';
-import esxify from './components/test-esx/test-esx.mjs';
+import Esxify from './components/test-esx/test-esx.mjs';
+import TypeScriptify from './components/test-typescript/test-typescript.ts';
 
-( async function () {
-  document.body.appendChild(component());
+(
+  async function () {
+    document.body.appendChild(component());
 
-  const esxstuff = new esxify(1,2,3,4);
+    const esx = new Esxify(1,2,3,4);
 
-  await esxstuff.delay(10000);
+    const typescript = new TypeScriptify('Typescript!');
 
-  const element = document.getElementById("unique");
-  element.innerText = UNIQUE.toString();
-})();
+    await esx.delay(5000);
+
+    const element = document.getElementById("unique");
+    element.innerText = `${UNIQUE.toString()}___${typescript.greet()}`;
+  }
+
+)();

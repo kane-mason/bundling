@@ -1,4 +1,4 @@
-export default class esxify {
+export default class Esxify {
 
   constructor(...params){
     this._param1 = params[0];
